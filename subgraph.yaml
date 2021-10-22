@@ -1,0 +1,32 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: NounsDescriptor
+    network: rinkeby
+    source:
+      address: "0x53cB482c73655D2287AE3282AD1395F82e6a402F"
+      abi: NounsDescriptor
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - BaseURIUpdated
+        - DataURIToggled
+        - OwnershipTransferred
+        - PartsLocked
+      abis:
+        - name: NounsDescriptor
+          file: ./abis/NounsDescriptor.json
+      eventHandlers:
+        - event: BaseURIUpdated(string)
+          handler: handleBaseURIUpdated
+        - event: DataURIToggled(bool)
+          handler: handleDataURIToggled
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: PartsLocked()
+          handler: handlePartsLocked
+      file: ./src/mapping.ts

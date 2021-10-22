@@ -1,0 +1,16 @@
+{
+  "name": "rinkeby-nouns-descriptor",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ rinkeby-nouns-descriptor",
+    "create-local": "graph create --node http://localhost:8020/ rinkeby-nouns-descriptor",
+    "remove-local": "graph remove --node http://localhost:8020/ rinkeby-nouns-descriptor",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 rinkeby-nouns-descriptor"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.22.4",
+    "@graphprotocol/graph-ts": "0.22.1"
+  }
+}
